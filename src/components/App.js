@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Login from './Login';
+import Logout from './Logout';
 import NotFound from './NotFound';
+import Dashboard from './Dashboard';
 import { BrowserRouter, Redirect, Route, Link, Switch, withRouter  } from 'react-router-dom';
 import { isTokenExpired, getTokenExpirationDate } from '../util/AuthServices';
 import './App.css';
@@ -71,6 +73,13 @@ class App extends Component {
                 authToken={this.state.authToken}
                 setAuthentication={this.setAuthentication}
                 checkIfLoggedIn={this.checkIfLoggedIn}
+              />
+              <PropsRoute 
+                path='/dashboard' 
+                component={Dashboard} 
+                authToken={this.state.authToken}
+                checkIfLoggedIn={this.checkIfLoggedIn}
+                logout={this.logout}
               />
               <Route component={NotFound}/>
             </Switch>

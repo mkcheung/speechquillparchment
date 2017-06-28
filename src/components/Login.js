@@ -24,7 +24,7 @@ class Login extends React.Component {
 
 	componentWillMount(){
 		if (this.props.checkIfLoggedIn()){
-			this.props.history.push('/conversations');
+			this.props.history.push('/dashboard');
 		}
 	}
 
@@ -69,7 +69,7 @@ class Login extends React.Component {
 		.then((response) => response.json())
 		.then((responseJson) => {
 			this.props.setAuthentication(responseJson.token);
-			this.props.history.push('/conversations');
+			this.props.history.push('/dashboard');
       	})
 		.catch((error) => {
 			console.log(error);
