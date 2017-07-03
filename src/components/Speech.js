@@ -5,9 +5,11 @@ class Speech extends React.Component{
 		const {details, index} = this.props;
 		return(
 			<li>
-					<video id="samp" width="640" height="480" controls>
-						<source src = {this.props.details.videoPath} type="video/mp4"/>
+				<div id="theVideo">
+					<video id="samp" width="640" height="480" controls src={details.videoUrl} type="video/mp4">
 					</video>
+				</div>
+				{details.textOfSpeech}
 			</li>
 		);
 	}

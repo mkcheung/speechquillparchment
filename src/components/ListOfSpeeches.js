@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Speech from './Speech';
+import video from './prototype.mp4';
 import 'whatwg-fetch';
 
 class ListOfSpeeches extends React.Component{
@@ -23,7 +24,7 @@ class ListOfSpeeches extends React.Component{
 		})
 		.then((response) => response.json())
 		.then((responseJson) => {
-			console.log(responseJson.speeches);
+			console.log(responseJson);
 			this.setState({
 				speeches:responseJson.speeches
 			});
@@ -36,13 +37,13 @@ class ListOfSpeeches extends React.Component{
 
 	render(){
 		return(
-			<ul>
+			<div>
 				{
 					Object
 					.keys(this.state.speeches)
 					.map(key => <Speech key={key} index={key} details={this.state.speeches[key]}/>)
 				}
-			</ul>
+			</div>
 		)
 	}
 }
